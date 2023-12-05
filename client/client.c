@@ -1,4 +1,3 @@
-// #include <iostream>  // C++のライブラリ
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -1,8 +1,8 @@
 #include <iostream>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <unistd.h>
+#include <sys/socket.h>  // アドレスドメイン
+#include <sys/types.h>  // ソケットタイプ
+#include <arpa/inet.h>  // バイトオーダーの変換に利用
+#include <unistd.h>  // close()に利用
 #include <string>
 #include <cstring>
 
@@ -60,7 +60,8 @@ int main() {
     // クライアントからのデータを受信
     char buff[1024] = {0};  // 1024バイトのデータを格納するための配列を初期化
     recv(sock, buff, sizeof(buff), 0);  // 受信
-    std::cerr << "received message is \"" << buff << "\"" << std::endl;
+    // 「\"」はダブルクォーテーションのエスケープシーケンス
+    std::cout << "received message is \"" << buff << "\"" << std::endl;
 
     // クライアントにデータを送信
     const char *hello = "Hello from server";
